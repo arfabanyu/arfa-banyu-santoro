@@ -1,22 +1,22 @@
 @import 'tailwindcss';
 @plugin "daisyui";
 @plugin "daisyui/theme" {
-  name: "dark-pink";
+  name: 'vintage';
   default: true;
-  prefersdark: true;
+  prefersdark: false;
   color-scheme: "dark";
-  --color-base-100: oklch(14% 0.005 285.823);
-  --color-base-200: oklch(14% 0.005 285.823);
-  --color-base-300: oklch(14% 0.005 285.823);
-  --color-base-content: oklch(100% 0 0);
-  --color-primary: oklch(14% 0.005 285.823);
-  --color-primary-content: oklch(0.66 0.2881912271390405 338.90055210660404);
-  --color-secondary: oklch(13% 0.028 261.692);
-  --color-secondary-content: oklch(100% 0 0);
-  --color-accent: oklch(82% 0.189 84.429);
-  --color-accent-content: oklch(100% 0 0);
-  --color-neutral: oklch(12% 0.042 264.695);
-  --color-neutral-content: oklch(98% 0 0);
+  --color-base-100: oklch(100% 0 0);
+  --color-base-200: oklch(98% 0 0);
+  --color-base-300: oklch(95% 0 0);
+  --color-base-content: oklch(21% 0.006 285.885);
+  --color-primary: #E2F1E7;
+  --color-primary-content: #387478;
+  --color-secondary: #A2678A;
+  --color-secondary-content: oklch(98% 0.003 247.858);
+  --color-accent: #4D3C77;
+  --color-accent-content: oklch(98% 0.003 247.858);
+  --color-neutral: oklch(20% 0 0);
+  --color-neutral-content: oklch(92% 0.004 286.32);
   --color-info: oklch(74% 0.16 232.661);
   --color-info-content: oklch(29% 0.066 243.157);
   --color-success: oklch(76% 0.177 163.223);
@@ -25,9 +25,9 @@
   --color-warning-content: oklch(41% 0.112 45.904);
   --color-error: oklch(71% 0.194 13.428);
   --color-error-content: oklch(27% 0.105 12.094);
-  --radius-selector: 0rem;
-  --radius-field: 0rem;
-  --radius-box: 0rem;
+  --radius-selector: 2rem;
+  --radius-field: 0.5rem;
+  --radius-box: 0.5rem;
   --size-selector: 0.25rem;
   --size-field: 0.25rem;
   --border: 1px;
@@ -43,8 +43,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-mono: var(--font-zen-dots);
-  --font-sans: var(--font-lexend);
+  --font-mono: var(--font-header);
+  --font-sans: var(--font-body);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -60,7 +60,57 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
-.text-shadow{
-  text-shadow: 0 0 1rem #f600cb;
+.text-shadow-xs {
+  text-shadow: 0 0 var(--text-xs) var(--color-primary-content);
 }
-
+.text-shadow-sm {
+  text-shadow: 0 0 var(--text-sm) var(--color-primary-content);
+}
+.text-shadow,
+.text-shadow-md,
+.text-shadow-base {
+  text-shadow: 0 0 var(--text-base) var(--color-primary-content);
+}
+.text-shadow-lg {
+  text-shadow: 0 0 var(--text-lg) var(--color-primary-content);
+}
+.text-shadow-xl {
+  text-shadow: 0 0 var(--text-xl) var(--color-primary-content),
+    0 0 var(--text-xl) var(--color-primary-content);
+}
+.text-shadow-2xl {
+  text-shadow: 0 0 var(--text-2xl) var(--color-primary-content),
+    0 0 var(--text-2xl) var(--color-primary-content);
+}
+.text-shadow-3xl {
+  text-shadow: 0 0 var(--text-3xl) var(--color-primary-content),
+    0 0 var(--text-3xl) var(--color-primary-content);
+}
+.text-shadow-4xl {
+  text-shadow: 0 0 var(--text-4xl) var(--color-primary-content),
+    0 0 var(--text-4xl) var(--color-primary-content);
+}
+.text-shadow-5xl {
+  text-shadow: 0 0 var(--text-5xl) var(--color-primary-content),
+    0 0 var(--text-5xl) var(--color-primary-content);
+}
+.text-shadow-6xl {
+  text-shadow: 0 0 var(--text-6xl) var(--color-primary-content),
+    0 0 var(--text-6xl) var(--color-primary-content),
+    0 0 var(--text-xl) var(--color-primary-content);
+}
+.text-shadow-7xl {
+  text-shadow: 0 0 var(--text-7xl) var(--color-primary-content),
+    0 0 var(--text-7xl) var(--color-primary-content),
+    0 0 var(--text-xl) var(--color-primary-content);
+}
+.text-shadow-8xl {
+  text-shadow: 0 0 var(--text-8xl) var(--color-primary-content),
+    0 0 var(--text-8xl) var(--color-primary-content),
+    0 0 var(--text-xl) var(--color-primary-content);
+}
+.text-shadow-9xl {
+  text-shadow: 0 0 var(--text-9xl) var(--color-primary-content),
+    0 0 var(--text-9xl) var(--color-primary-content),
+    0 0 var(--text-xl) var(--color-primary-content);
+}

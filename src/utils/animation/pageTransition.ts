@@ -2,7 +2,7 @@ import gsap from 'gsap';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 const DURATION: number = 2;
-const TRANSITION: string = 'power4.inOut';
+const TRANSITION: string = 'expo.inOut';
 
 export const animatePageIn = () => {
   const element = document.querySelector('.element');

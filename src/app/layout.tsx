@@ -1,16 +1,18 @@
 import type { Metadata } from 'next';
-import { Anton, JetBrains_Mono } from 'next/font/google';
+import Boldonse from 'next/font/local';
+import { Funnel_Display } from 'next/font/google';
 import './globals.css';
+import ReactLenis from 'lenis/react';
 
-const bebasNeue = Anton({
+const funnelDisplay = Funnel_Display({
   weight: '400',
-  variable: '--font-zen-dots',
+  variable: '--font-body',
   subsets: ['latin'],
 });
 
-const inter = JetBrains_Mono({
-  variable: '--font-lexend',
-  subsets: ['latin'],
+const boldonse = Boldonse({
+  src: '../../public/fonts/boldonse-regular.ttf',
+  variable: '--font-header',
 });
 
 export const metadata: Metadata = {
@@ -23,12 +25,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <html lang='en'>
-      <body className={`${bebasNeue.variable} ${inter.variable} antialiased`}>
-        {children}
-      </body>
+      <ReactLenis root>
+        <body
+          className={`${funnelDisplay.variable} ${boldonse.variable} antialiased`}
+        >
+          {children}
+        </body>
+      </ReactLenis>
     </html>
   );
 }
