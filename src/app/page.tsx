@@ -10,6 +10,7 @@ import { motion } from 'motion/react';
 import Hero from '@/sections/Hero';
 import Appearance from '@/sections/Appearance';
 import About from '@/sections/About';
+import Skills from '@/sections/Skills';
 
 export default function Home() {
   return (
@@ -20,11 +21,7 @@ export default function Home() {
       </div>
       <div data-theme='dark'>
         <About />
-        <SectionLayout>
-          <div>
-            <div></div>
-          </div>
-        </SectionLayout>
+        <Skills />
       </div>
     </>
   );

@@ -37,13 +37,13 @@ const Appearance = () => {
     ['0', '100%']
   );
 
-  useEffect(() => {
-    const scroll = () => {
-      console.log(scrollYProgress.get());
-      // console.log(scrollY.get());
-    };
-    document.addEventListener('scroll', scroll);
-  }, [scrollYProgress]);
+  // useEffect(() => {
+  //   const scroll = () => {
+  //     console.log(scrollYProgress.get());
+  //     // console.log(scrollY.get());
+  //   };
+  //   document.addEventListener('scroll', scroll);
+  // }, [scrollYProgress]);
   return (
     <SectionLayout>
       <div>
