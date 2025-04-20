@@ -1,25 +1,27 @@
 import { useMotionValue, useTransform, motion, useScroll } from 'motion/react';
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import React, { useRef } from 'react';
 const imagesPosition: {
-  3: string;
-  5: string;
-  6: string;
-  7: string;
+  [key: number]: string;
 } = {
   3: 'object-top',
   5: 'object-right',
   6: 'object-left',
   7: 'object-right',
 };
-const ParallaxImage = ({ src, index }) => {
+const ParallaxImage = ({
+  src,
+  index,
+}: {
+  src: StaticImageData;
+  index: number;
+}) => {
   const target = useRef(null);
   const { scrollYProgress } = useScroll({
     target,
     offset: ['start end', 'end start'],
   });
   const random = Math.floor(Math.random() * -75) - 25;
-  const height = random * -1;
   const scroll = useMotionValue(scrollYProgress).get();
   const translateY = useTransform(scroll, [0, 1], [0, random]);
   const opacity = useTransform(scroll, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
