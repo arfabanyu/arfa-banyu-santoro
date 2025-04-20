@@ -3,5 +3,5 @@ export default function Template({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <div>{children}</div>;
+  return <div className="scrollbar-hidden">{children}</div>;
 }
