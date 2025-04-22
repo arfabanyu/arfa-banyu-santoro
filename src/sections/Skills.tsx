@@ -1,13 +1,16 @@
 import SectionLayout from '@/layouts/SectionLayout';
 import React from 'react';
 import { motion } from 'motion/react';
+import ParallaxText from '@/components/ParallaxSkills';
+import Image from 'next/image';
+import childeMe from '~/images/child_me.jpg';
 
 const Skills = () => {
   const words = 'skills skills skills skills skills skills skills'.split(' ');
   return (
     <SectionLayout>
       <div className='h-[500vh]'>
-        <motion.div className='h-screen grid place-content-center text-center'>
+        <motion.div className='sticky top-0 h-screen grid place-content-center text-center'>
           <h2 className='text-5xl font-mono leading-normal'>
             a <span className='text-[#387478]'>MODERN WEB DEVELOPER</span>{' '}
             focused on usability, functionality,{' '}
@@ -15,11 +18,10 @@ const Skills = () => {
             interaction.
           </h2>
           <div className='text-7xl'>
-            <motion.p>
-              {words.map((word, i) => {
-                return <Word key={i}>{word}</Word>;
-              })}
-            </motion.p>
+            <ParallaxText baseVelocity={10}>
+              <Image src={childeMe} alt='' className='h-100 w-fit' />
+            </ParallaxText>
+
             <motion.p>
               {words.map((word, i) => {
                 return <Word key={i}>{word}</Word>;
