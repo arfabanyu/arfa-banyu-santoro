@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef } from 'react';
 import {
   motion,
   useScroll,
@@ -11,8 +11,8 @@ import {
 import { wrap } from '@motionone/utils';
 
 interface ParallaxProps {
-  children: React.ReactNode;
-  baseVelocity?: number;
+  children: string | React.ReactNode;
+  baseVelocity: number;
 }
 
 export default function ParallaxText({
@@ -26,35 +26,25 @@ export default function ParallaxText({
     damping: 50,
     stiffness: 400,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
+  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 1], {
     clamp: false,
   });
 
-  const [repetitions, setRepetitions] = useState(1);
-  const containerRef = useRef(null);
-  const textRef = useRef(null);
-  
-  useEffect(() => {
-    const calculateRepetitions = () => {
-      if (containerRef.current && textRef.current) {
-        const containerWidth = containerRef.current.offsetWidth;
-        const textWidth = textRef.current.offsetWidth;
-        const newRepetitions = Math.ceil(containerWidth / textWidth) + 1;
-        setRepetitions(newRepetitions);
-      }
-    };
-    
-    calculateRepetitions();
-    
-    window.addEventListener('resize', calculateRepetitions);
-    return () => window.removeEventListener('resize', calculateRepetitions);
-  }, []);
-  
-  const x = useTransform(baseX, (v) => `${wrap(-100 / repetitions, 0, v)}%`);
+  /**
+   * This is a magic wrapping for the length of the text - you
+   * have to replace for wrapping that works for you or dynamically
+   * calculate
+   */
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
+
   const directionFactor = useRef<number>(1);
   useAnimationFrame((_, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
 
+    /**
+     * This is what changes the direction of the scroll once we
+     * switch scrolling directions.
+     */
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
     } else if (velocityFactor.get() > 0) {
@@ -66,15 +56,17 @@ export default function ParallaxText({
     baseX.set(baseX.get() + moveBy);
   });
 
+  /**
+   * The number of times to repeat the child text should be dynamically calculated
+   * based on the size of the text and viewport. Likewise, the x motion value is
+   * currently wrapped between -20 and -45% - this 25% is derived from the fact
+   * we have four children (100% / 4). This would also want deriving from the
+   * dynamically generated number of children.
+   */
   return (
-    <div className='w-full overflow-hidden whitespace-nowrap' ref={containerRef}>
-      <motion.div className='inline-block' style={{ x }}>
-        {Array.from({ length: repetitions }).map((_, i) => (
-          <span key={i} ref={i === 0 ? textRef : null}>
-            {children}
-            {''}
-          </span>
-        ))}
+    <div className=''>
+      <motion.div className='flex whitespace-nowrap' style={{ x }}>
+        {children}
       </motion.div>
     </div>
   );

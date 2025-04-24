@@ -10,23 +10,24 @@ const Skills = () => {
   return (
     <SectionLayout>
       <div className='h-[500vh]'>
-        <motion.div className='sticky top-0 h-screen grid place-content-center text-center'>
-          <h2 className='text-5xl font-mono leading-normal'>
+        <motion.div className='sticky top-0 h-screen items-center  text-center'>
+          {/* <h2 className='text-3xl font-mono leading-normal text-left'>
             a <span className='text-[#387478]'>MODERN WEB DEVELOPER</span>{' '}
             focused on usability, functionality,{' '}
             <span className='text-[#387478]'>SECURE SYSTEMS</span>, and seamless
             interaction.
-          </h2>
-          <div className='text-7xl'>
-            <ParallaxText baseVelocity={10}>
-              <Image src={childeMe} alt='' className='h-100 w-fit' />
-            </ParallaxText>
-
-            <motion.p>
-              {words.map((word, i) => {
-                return <Word key={i}>{word}</Word>;
+          </h2> */}
+          <div>
+            <div className='text-7xl grid grid-flow-col grid-rows-7 gap-1 overflow-hidden '>
+              {Array.from({ length: 100 }, (v, k) => {
+                return <div className='size-24 bg-neutral border border-base-100 rounded' key={k}></div>;
               })}
-            </motion.p>
+            </div>
+            {/* <div className='text-7xl grid grid-flow-col gap-1 overflow-hidden '>
+              {Array.from({ length: 20 }, (v, k) => {
+                return <div className='size-24 bg-pink-50' key={k}></div>;
+              })}
+            </div> */}
           </div>
         </motion.div>
       </div>
