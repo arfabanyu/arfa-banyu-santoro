@@ -1,5 +1,6 @@
+'use client'
 import SectionLayout from '@/layouts/SectionLayout';
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 
 const About = () => {
@@ -9,13 +10,13 @@ const About = () => {
     ' '
   );
 
-  useEffect(() => {
-    const scroll = () => {
-      console.log(scrollYProgress.get());
-      // console.log(scrollY.get());
-    };
-    document.addEventListener('scroll', scroll);
-  }, [scrollYProgress]);
+  // useEffect(() => {
+  //   const scroll = () => {
+  //     console.log(scrollYProgress.get());
+  //     // console.log(scrollY.get());
+  //   };
+  //   document.addEventListener('scroll', scroll);
+  // }, [scrollYProgress]);
   return (
     <SectionLayout>
       <div className='h-[800vh]' ref={target}>
@@ -44,7 +45,6 @@ const About = () => {
   );
 };
 const Word = ({ children, className, progress, range }) => {
-  console.log(range);
   const opacity = useTransform(progress, range, [0, 1]);
   return (
     <span className='relative isolate'>

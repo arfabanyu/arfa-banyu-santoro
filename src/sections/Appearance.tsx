@@ -1,3 +1,4 @@
+'use client'
 import SectionLayout from '@/layouts/SectionLayout';
 import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
@@ -49,7 +50,7 @@ const Appearance = () => {
       <div>
         <div
           ref={target}
-          className='sticky top-0 max-w-5xl mx-auto pt-96 space-y-96 p-16 flex flex-col *:even:self-end *:aspect-[3_/_4] *:object-cover *:w-80 '
+          className='sticky top-0 max-w-5xl mx-auto pt-96 gap-96 p-16 grid *:even:place-self-end *:aspect-[3_/_4] *:object-cover *:w-80 '
         >
           <motion.div
             style={{ opacity, scale }}

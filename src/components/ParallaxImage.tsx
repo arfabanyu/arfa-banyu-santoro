@@ -1,3 +1,4 @@
+'use client'
 import { useMotionValue, useTransform, motion, useScroll } from 'motion/react';
 import Image, { StaticImageData } from 'next/image';
 import React, { useRef } from 'react';

@@ -1,4 +1,4 @@
-'use client';
+
 import SectionLayout from '@/layouts/SectionLayout';
 import {
   useInView,
@@ -11,6 +11,7 @@ import Hero from '@/sections/Hero';
 import Appearance from '@/sections/Appearance';
 import About from '@/sections/About';
 import Skills from '@/sections/Skills';
+import Repo from '@/sections/Repo';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <div data-theme='dark'>
         <About />
         <Skills />
+        <Repo/>
       </div>
     </>
   );
