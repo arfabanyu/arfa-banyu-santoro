@@ -69,16 +69,11 @@
   --noise: 0;
 }
 
-/* html, */
-/* body { */
-  /* scrollbar-width: none; Firefox */
-  /* -ms-overflow-style: none; IE 10+ */
-/* } */
-
-/* html::-webkit-scrollbar, */
-/* body::-webkit-scrollbar { */
-  /* display: none; Chrome, Safari, Edge Chromium */
-/* } */
+html,
+body {
+  scrollbar-width: thin;
+  -ms-overflow-style: none; 
+}
 
 :root {
   --background: #ffffff;

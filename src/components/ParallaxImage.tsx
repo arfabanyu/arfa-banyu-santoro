@@ -31,8 +31,9 @@ const ParallaxImage = ({
     [0, 0.2, 0.8, 1],
     ['blur(0.5rem)', 'blur(0rem)', 'blur(0rem)', 'blur(0.5rem)']
   );
+  // 
   return (
-    <div className='relative transform transform-3d odd:skew-6 even:-skew-6'>
+    <div className='relative transform odd:md:skew-6 even:md:-skew-6'>
       <motion.div
         style={{ translateY, filter }}
         className={`bg-primary-content scale-110 w-full h-50 absolute top-1/2 -translate-y-1/2`}

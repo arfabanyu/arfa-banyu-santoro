@@ -7,7 +7,7 @@ import Footer from '@/sections/Footer';
 
 export default function Home() {
   return (
-    <>
+    <div>
       <div data-theme='green'>
         <Hero />
         <Appearance />
@@ -18,7 +18,7 @@ export default function Home() {
         <Repo />
         <Footer />
       </div>
-    </>
+    </div>
   );
 }
 {

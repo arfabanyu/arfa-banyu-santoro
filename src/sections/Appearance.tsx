@@ -51,7 +51,7 @@ const Appearance = () => {
       <div>
         <div
           ref={target}
-          className='sticky top-0 max-w-5xl mx-auto pt-96 gap-96 p-8 grid *:even:place-self-end *:aspect-[3_/_4] *:object-cover  *:max-w-80 '
+          className='sticky top-0 max-w-5xl mx-auto pt-96 gap-96 p-4 md:p-8 grid *:even:place-self-end *:aspect-[3_/_4] *:object-cover  *:max-w-80 '
         >
           <motion.h2
             style={{ opacity, scale }}

@@ -17,11 +17,13 @@ const About = () => {
   //   };
   //   document.addEventListener('scroll', scroll);
   // }, [scrollYProgress]);
+
+  // 9.37vw
   return (
     <SectionLayout>
       <div className='h-[800vh]' ref={target}>
         <motion.div className='sticky top-0 pt-8'>
-          <h2 className='font-mono text-6xl md:text-9xl leading-normal flex flex-wrap'>
+          <h2 className='font-mono text-[7.5vh] md:text-[9.37vw] leading-normal flex flex-wrap'>
             {words.map((word, i) => {
               const start = i / words.length;
               const end = start + 1 / words.length;

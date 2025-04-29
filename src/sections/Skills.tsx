@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { motion } from 'motion/react';
 import SectionLayout from '@/layouts/SectionLayout';
 const Skills = () => {
@@ -13,26 +13,26 @@ const Skills = () => {
           className='stats stats-vertical md:stats-horizontal shadow'
         >
           <div className='stat place-items-center'>
-            <div className='stat-title md:text-lg'>Repositories Created</div>
+            <div className='stat-title md:text-lg'>Repositories</div>
             <div className='stat-value text-4xl md:text-7xl'>64+</div>
             <div className='stat-desc md:text-lg'>
-              Including Web Apps, APIs, and Projects
+              Web Apps, APIs, and Programs
             </div>
           </div>
 
           <div className='stat place-items-center'>
             <div className='stat-title md:text-lg'>Coding Hours</div>
-            <div className='stat-value text-4xl md:text-7xl'>1.500+</div>
+            <div className='stat-value text-4xl md:text-7xl'>2.000+</div>
             <div className='stat-desc md:text-lg'>
-              ↗︎ Consistently 10+ hours/week
+              ↗︎ Consistently 20+ hrs/week since 2023
             </div>
           </div>
 
           <div className='stat place-items-center'>
             <div className='stat-title md:text-lg'>Tech Stack Mastered</div>
             <div className='stat-value text-4xl md:text-7xl'>7+</div>
-            <div className='stat-desc md:text-lg'>
-              HTML, CSS, JS, React, Laravel, Tailwind, MySQL, etc.
+            <div className='stat-desc md:text-lg text-center'>
+              Fullstack: React, Laravel, Tailwind . . .
             </div>
           </div>
         </motion.div>

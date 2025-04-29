@@ -51,7 +51,7 @@ const Repo = () => {
               key={i}
               className='border-t p-6 relative'
             >
-              <h3 className='text-4xl font-mono md:text-4xl leading-20 uppercase'>
+              <h3 className='text-4xl break-words font-mono md:text-4xl leading-13 md:leading-20 uppercase'>
                 {repo.name.replaceAll('-', ' ')}
               </h3>
               <p className='text-sm text-gray-400 max-w-2xl'>
