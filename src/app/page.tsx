@@ -1,4 +1,3 @@
-
 import SectionLayout from '@/layouts/SectionLayout';
 import {
   useInView,
@@ -12,6 +11,7 @@ import Appearance from '@/sections/Appearance';
 import About from '@/sections/About';
 import Skills from '@/sections/Skills';
 import Repo from '@/sections/Repo';
+import Footer from '@/sections/Footer';
 
 export default function Home() {
   return (
@@ -23,7 +23,8 @@ export default function Home() {
       <div data-theme='dark'>
         <About />
         <Skills />
-        <Repo/>
+        <Repo />
+        <Footer />
       </div>
     </>
   );

@@ -1,6 +1,6 @@
-'use client'
+'use client';
 import SectionLayout from '@/layouts/SectionLayout';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import one from '~/images/me_1.jpg';
 import two from '~/images/me_2.jpg';
@@ -14,6 +14,7 @@ import nine from '~/images/me_9.jpg';
 import ParallaxImage from '@/components/ParallaxImage';
 
 const Appearance = () => {
+  const [isMobile, setIsMobile] = useState(true);
   const images = [one, two, three, four, five, six, seven, eight, nine];
 
   const target = useRef(null);
@@ -30,51 +31,36 @@ const Appearance = () => {
   });
 
   const opacity = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
-  const scale = useTransform(scrollYProgress, [0, 0.7], [1, 2]);
-  const translateY = useTransform(scrollYProgress, [0.75, 1], [0, 1000]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.7],
+    [1, isMobile ? 1.1 : 2]
+  );
   const scaleSect = useTransform(
     sectionTransition.scrollYProgress,
     [0, 1],
     ['0', '100%']
   );
 
-  // useEffect(() => {
-  //   const scroll = () => {
-  //     console.log(scrollYProgress.get());
-  //     // console.log(scrollY.get());
-  //   };
-  //   document.addEventListener('scroll', scroll);
-  // }, [scrollYProgress]);
+  // Get Window Size
+  useEffect(() => {
+    setIsMobile(window.screen.width <= 425);
+  }, []);
   return (
     <SectionLayout>
       <div>
         <div
           ref={target}
-          className='sticky top-0 max-w-5xl mx-auto pt-96 gap-96 p-16 grid *:even:place-self-end *:aspect-[3_/_4] *:object-cover *:w-80 '
+          className='sticky top-0 max-w-5xl mx-auto pt-96 gap-96 p-8 grid *:even:place-self-end *:aspect-[3_/_4] *:object-cover  *:max-w-80 '
         >
-          <motion.div
+          <motion.h2
             style={{ opacity, scale }}
-            className='sticky top-20 grid place-content-center mx-auto -z-10'
+            className='sticky font-mono uppercase top-0 h-screen mx-auto place-content-center text-center mix-blend-multiply overflow-hidden'
           >
-            <motion.h2
-              transition={{ staggerChildren: 0.1 }}
-              className='text-center mix-blend-multiply overflow-hidden'
-            >
-              {'"There Are No Exaggerations In The Story, Just Small Steps To Be Taken."'
-                .split(' ')
-                .map((word, i) => {
-                  return (
-                    <motion.span
-                      style={{ translateY }}
-                      className='leading-none'
-                      key={i}
-                    >
-                      {word + ' '}
-                    </motion.span>
-                  );
-                })}
-            </motion.h2>
-          </motion.div>
+            {
+              '"There Are No Exaggerations In The Story, Just Small Steps To Be Taken."'
+            }
+          </motion.h2>
 
           {images.map((image, i) => {
             return <ParallaxImage key={i} index={i} src={image} />;

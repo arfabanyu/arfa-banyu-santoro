@@ -1,7 +1,7 @@
-'use client'
+'use client';
 import SectionLayout from '@/layouts/SectionLayout';
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'motion/react';
+import { motion, MotionValue, useScroll, useTransform } from 'motion/react';
 
 const About = () => {
   const target = useRef(null);
@@ -21,7 +21,7 @@ const About = () => {
     <SectionLayout>
       <div className='h-[800vh]' ref={target}>
         <motion.div className='sticky top-0 pt-8'>
-          <h2 className='font-mono text-9xl leading-normal flex flex-wrap'>
+          <h2 className='font-mono text-6xl md:text-9xl leading-normal flex flex-wrap'>
             {words.map((word, i) => {
               const start = i / words.length;
               const end = start + 1 / words.length;
@@ -44,7 +44,17 @@ const About = () => {
     </SectionLayout>
   );
 };
-const Word = ({ children, className, progress, range }) => {
+const Word = ({
+  children,
+  className,
+  progress,
+  range,
+}: {
+  children: React.ReactNode;
+  className: string;
+  progress: MotionValue;
+  range: [number, number];
+}) => {
   const opacity = useTransform(progress, range, [0, 1]);
   return (
     <span className='relative isolate'>
