@@ -19,10 +19,11 @@ const Repo = () => {
     async function getRepos() {
       try {
         const res = await fetch(
-          'https://api.github.com/users/arfabanyu/repos?per_page=100&sort=pushed',
+          'https://api.github.com/users/arfabanyu/repos?per_page=100&sort=pushed&visibility=public',
           {
             headers: {
               Authorization: `Bearer ${process.env.NEXT_PUBLIC_GITHUB_PERSONAL_ACCESS_TOKEN}`,
+              Accept: 'application/vnd.github+json',
             },
           }
         );
@@ -37,7 +38,9 @@ const Repo = () => {
   return (
     <SectionLayout>
       <div>
-        <h2 className='text-4xl leading-12 md:text-7xl px-6 py-12 font-mono'>My Repositories</h2>
+        <h2 className='text-sm leading-12 text-gray-400 px-6 py-4'>
+          My Repositories
+        </h2>
         {data.map((repo, i: number) => {
           return (
             <motion.div
@@ -46,28 +49,15 @@ const Repo = () => {
               transition={{ duration: 1.5, ease: 'circInOut', delay: 0.1 }}
               viewport={{ amount: 'some', once: true }}
               key={i}
-              className='border-t p-6 relative space-y-2'
+              className='border-t p-6 relative'
             >
-              <h3 className='text-4xl md:text-6xl leading-none tracking-wide font-bold uppercase'>
+              <h3 className='text-4xl font-mono md:text-4xl leading-20 uppercase'>
                 {repo.name.replaceAll('-', ' ')}
               </h3>
               <p className='text-sm text-gray-400 max-w-2xl'>
                 {repo.description}
               </p>
-              {/* {repo.topics.length !== 0 ? (
-                <div className='flex gap-2 flex-wrap max-w-2xl pt-2'>
-                  {repo.topics.map((topic, i) => {
-                    return (
-                      <span className='border border-[#387478]  px-2 text-sm' key={i}>
-                        {topic}
-                      </span>
-                    );
-                  })}
-                </div>
-              ) : (
-                ''
-              )} */}
-              <div className='flex pt-2 gap-2 *:p-2 *:first:bg-white *:first:hover:bg-gray-400 *:first:text-black *:last:ring *:last:ring-white *:last:hover:border-none *:last:hover:bg-gray *:last:hover:text-black *:transition-all'>
+              <div className='flex pt-4 gap-2 *:p-2 *:first:bg-white *:first:hover:bg-gray-400 *:first:text-black *:last:ring *:last:ring-white *:last:hover:border-none *:last:hover:bg-gray *:last:hover:text-black *:transition-all'>
                 <Link href={repo.html_url}>See Repo</Link>
                 {repo.has_pages ? (
                   <Link href={repo.homepage}>See Page</Link>

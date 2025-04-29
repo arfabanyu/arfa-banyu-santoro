@@ -1,11 +1,3 @@
-import SectionLayout from '@/layouts/SectionLayout';
-import {
-  useInView,
-  useMotionValue,
-  useScroll,
-  useTransform,
-} from 'motion/react';
-import { motion } from 'motion/react';
 import Hero from '@/sections/Hero';
 import Appearance from '@/sections/Appearance';
 import About from '@/sections/About';
